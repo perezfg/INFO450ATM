@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+//Delcaring all my functions
 int getAmount();
 int getFifty(int val);
 int getTwenty(int val);
@@ -8,33 +9,38 @@ int getTen(int val);
 int getFive(int val);
 int getOne(int val);
 int main() {
+	//Assinging variables for the programs
 	int bills, moneyLeft, withdrawal, fifty, twenty, ten, five, one;
 	int value = 0;
 	char choice = 'Y';
+	//While loop for when the user enters Y to continue with other withdrawals
 	while (choice == 'y' || choice == 'Y') {
+		//Function call to get amount
 		withdrawal = getAmount();
+		//Used an if statement to break the while loop if user enters '0' per functional requirements
 		if (withdrawal == 0)
 			break;
 		moneyLeft = withdrawal;
+		//Function call  to get amount of $50 bills and adjustment of what is left from withdrawal
 		fifty = getFifty(moneyLeft);
 		withdrawal = withdrawal - (fifty * 50);
-
 		moneyLeft = withdrawal;
+		//Function call to get amount of $20 bills and adjustment of what is left from withdrawal
 		twenty = getTwenty(moneyLeft);
 		withdrawal = withdrawal - (twenty * 20);
-
 		moneyLeft = withdrawal;
+		//Function call to get amount of $10 bills and adjustment of what is left from withdrawal
 		ten = getTen(moneyLeft);
 		withdrawal = withdrawal - (ten * 10);
-
 		moneyLeft = withdrawal;
+		//Function call to get amount of $5 bills and adjustment of what is left from withdrawal
 		five = getFive(moneyLeft);
 		withdrawal = withdrawal - (five * 5);
-
 		moneyLeft = withdrawal;
+		//Function call to get amount of $1 bills and adjustment of what is left from withdrawal
 		one = getOne(moneyLeft);
 		withdrawal = withdrawal - (one * 1);
-
+		//I used if functions to ensure that each function is called and checked to make sure that if any bill was 0, then it won't be displayed.
 		if (fifty > 0) {
 			cout << "You have " << fifty << " $50.00 bills" << endl;
 		}
@@ -50,14 +56,14 @@ int main() {
 		if (one > 0) {
 			cout << "You have " << one << " $1.00 bills" << endl;
 		}
-
+		//Output to user for another withdrawal
 		cout << "Another withdrawal?" << endl;
 		cin >> choice;
 	}
 	system("pause");
 	return 0;
 }
-
+//function to get amount of withdrawal, while checking if amount if indeed between 1 and 300
 int getAmount() {
 	int value;
 	do {
@@ -73,7 +79,7 @@ int getAmount() {
 	} while (value >= 300 || value <=1 || value==0);
 	return value;
 }
-
+//function to get amount of $50 bills
 int getFifty(int val) {
 	int bills = val;
 	int fiftyCount=0;
@@ -83,6 +89,7 @@ int getFifty(int val) {
 	}
 	return fiftyCount;
 }
+//function to get amount of $20 bills
 int getTwenty(int val) {
 	int bills = val;
 	int twentyCount = 0;
@@ -92,6 +99,7 @@ int getTwenty(int val) {
 	}
 	return twentyCount;
 }
+//function to get amount of $10 bills
 int getTen(int val) {
 	int bills = val;
 	int tenCount = 0;
@@ -101,6 +109,7 @@ int getTen(int val) {
 	}
 	return tenCount;
 }
+//function to get amount of $5 bills
 int getFive(int val) {
 	int bills = val;
 	int fiveCount = 0;
@@ -110,6 +119,7 @@ int getFive(int val) {
 	}
 	return fiveCount;
 }
+//function to get amount of $1 bills
 int getOne(int val) {
 	int bills = val;
 	int oneCount = 0;
